@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import SpeechToText from "./SpeechToText";
+import VoiceSearch from "./VoiceSearch";
+import "./App.css";
 
 function App() {
+  const [showVoiceSearch, setShowVoiceSearch] = useState(false);
+  const [showSpeechToText, setShowSpeechToText] = useState(false);
+  const [showHome, setShowHome] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="image"></div>
+      <div className="App">
+        {showHome && (
+          <>
+            <button
+              onClick={() => {
+                setShowHome(false);
+                setShowSpeechToText(true);
+              }}
+            >
+              Speech To Text Converter
+            </button>
+            <button
+              onClick={() => {
+                setShowHome(false);
+                setShowVoiceSearch(true);
+              }}
+            >
+              Voice Search
+            </button>
+          </>
+        )}
+        {!showHome && (
+          <button
+            className="home"
+            onClick={() => {
+              setShowHome(true);
+              setShowSpeechToText(false);
+              setShowVoiceSearch(false);
+            }}
+          >
+            Home
+          </button>
+        )}
+        {showSpeechToText && <SpeechToText />}
+        {showVoiceSearch && <VoiceSearch />}
+      </div>
+    </>
   );
 }
 

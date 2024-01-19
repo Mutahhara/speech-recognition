@@ -1,0 +1,32 @@
+.micIcon {
+  width: 65px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  bottom: -30px;
+  left: 220px;
+}
+
+.micIcon_animated::before {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  z-index: -1;
+  border-radius: 100%;
+  background-color: gray;
+  animation: pulse 1.2s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

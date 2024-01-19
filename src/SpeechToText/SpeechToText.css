@@ -1,0 +1,14 @@
+.speechToTextContainer {
+  position: relative;
+}
+
+.textContainer {
+  width: 500px;
+  height: 500px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  font-size: x-large;
+  padding: 15px;
+  color: #454545;
+  filter: drop-shadow(2px 4px 6px grey);
+}
